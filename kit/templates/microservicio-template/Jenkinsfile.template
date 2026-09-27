@@ -1,0 +1,14 @@
+// Consumir la Shared Library registrada en Jenkins con el identificador 'iaslab-pipeline-library'
+@Library('iaslab-pipeline-library@v1.0') _
+
+standardPipeline(
+    serviceName: 'microservicio-backend',
+    buildType: 'maven',
+    jdkVersion: '17',
+    publishJar: true,
+    publishDocker: true,
+    nexusHost: 'REEMPLAZAR_CON_IP_DE_NEXUS',     // IP donde corre Sonatype Nexus (ej. IP de ec2-nexus)
+    dockerPort: '9080',                          // Puerto del Docker Registry alojado en Nexus
+    deployTarget: 'REEMPLAZAR_CON_IP_DE_DEPLOY', // IP del servidor QA (ej. IP de ec2-deploy)
+    healthEndpoint: '/api/products'              // Endpoint HTTP de validación de salud
+)

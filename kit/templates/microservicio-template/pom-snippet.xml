@@ -1,0 +1,17 @@
+<!-- ======================================================================
+     Fragmento para el pom.xml del microservicio
+     Agregue este bloque dentro de <project> para permitir mvn deploy hacia Nexus
+     ====================================================================== -->
+
+<distributionManagement>
+    <repository>
+        <id>nexus-releases</id>
+        <name>Nexus - releases inmutables</name>
+        <url>http://${nexus.host}:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <name>Nexus - snapshots (mutables)</name>
+        <url>http://${nexus.host}:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
